@@ -1,4 +1,4 @@
-from flask import Flask, render_template #rt - connects flask + html
+from flask import Flask, render_template, url_for #rt - connects flask + html, url_for - for tamplates
 
 app = Flask(__name__)
 
