@@ -31,7 +31,7 @@ def about():
 
 @app.route('/posts')
 def posts():
-    articles = Article.query.order_by(Article).all()
+    articles = Article.query.order_by(Article.date).all()
     return render_template('posts.html', articles=articles) # pass to template list 'articles'(2) and in template we could have acsess to this list with key word 'articles'(1) and work in template
 
 @app.route('/create-article', methods=['POST','GET'])
