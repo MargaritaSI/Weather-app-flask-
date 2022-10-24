@@ -59,11 +59,10 @@ def post_update(id):
 
         try:
             db.session.commit()
-            return redirect('/')
+            return redirect('/posts')
         except:
             return "Error during update topic"
     else:
-
         return render_template('post_update.html', article=article)
 
 @app.route('/create-article', methods=['POST','GET'])

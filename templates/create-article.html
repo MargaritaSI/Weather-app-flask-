@@ -8,11 +8,10 @@ Adding topic
 <div class="container mt-5">
     <h1>Adding topic</h1>
     <form method="post">  <!-- page where froms edge is going (where, how)-->
-        <input type="text" name="title" id="title" class="form-control" value="{{ article.title }}" placeholder="add topic"><br> <!-- for title in app -->
-        <textarea name="intro" id="intro" class="form-control" placeholder="add anons">{{ article.intro }}</textarea><br> <!-- for intro in app -->
-        <textarea name="text" id="text" class="form-control"  placeholder="Add main text">{{ article.text }}</textarea><br> <!-- for text in app -->
-        <input type="submit" class="btn btn-success" value="Update"> <!-- button -->
-
+        <input type="text" name="title" id="title" class="form-control" placeholder="add topic"><br> <!-- for title in app -->
+        <textarea name="intro" id="intro" class="form-control" placeholder="add anons"></textarea><br> <!-- for intro in app -->
+        <textarea name="text" id="text" class="form-control"  placeholder="Add main text"></textarea><br> <!-- for text in app -->
+        <input type="submit" class="btn btn-success" value="Send"> <!-- button -->
     </form>
 </div>
 {% endblock %}

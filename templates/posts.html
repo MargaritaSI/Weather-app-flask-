@@ -9,13 +9,12 @@ All posts on site
     <h1>All posts</h1>
 
     {% if articles|length > 0 %}
-
         {% for element in articles %}
         <div class="alert alert-info">
             <h2>{{ element.title }}</h2>
             <p>{{ element.intro }}</p>
             <p><b>Data: {{ element.date.date() }}</b></p>
-            <a href="/posts/{{ element.id }}"class="btn btn-warning">More</a> <!-- button 'More'-->
+            <a href="/posts/{{ element.id }}" class="btn btn-warning">More</a> <!-- button 'More'-->
         </div>
         {% endfor %}
     {% else %}
