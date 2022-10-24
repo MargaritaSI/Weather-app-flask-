@@ -31,8 +31,23 @@ def about():
 
 @app.route('/posts')
 def posts():
-    articles = Article.query.order_by(Article.date).all()
+    articles = Article.query.order_by(Article.date.desc()).all()
     return render_template('posts.html', articles=articles) # pass to template list 'articles'(2) and in template we could have acsess to this list with key word 'articles'(1) and work in template
+
+@app.route('/posts/<int:id>')
+def posts_detail(id):
+    article = Article.query.get(id)
+    return render_template('post_detail.html', article=article) #
+
+@app.route('/posts/<int:id>/del')
+def posts_detete(id):
+    article = Article.query.get_or_404(id)
+
+    try:
+        db.session.delete(article)
+        db.session.commit()
+        return redirect('/posts')
+    except: 'error during deleting posts'
 
 @app.route('/create-article', methods=['POST','GET'])
 def create_article():

@@ -13,8 +13,8 @@ All posts on site
         <h2>{{ element.title }}</h2>
         <p>{{ element.intro }}</p>
         <p><b>Data: {{ element.date.date() }}</b></p>
-        <button class="btn btn-warning">More</button>
-    {% endfor %}
+        <a href="/posts/{{ element.id }}"class="btn btn-warning">More</a> <!-- button 'More'-->
     </div>
+    {% endfor %}
 </div>
 {% endblock %}
