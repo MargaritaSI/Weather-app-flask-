@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+Updating article
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Updating article</h1>
+    <form method="post">  <!-- page where froms edge is going (where, how)-->
+        <input type="text" name="title" id="title" class="form-control" placeholder="add topic"><br> <!-- for title in app -->
+        <textarea name="intro" id="intro" class="form-control" placeholder="add anons"></textarea><br> <!-- for intro in app -->
+        <textarea name="text" id="text" class="form-control" placeholder="Add main text"></textarea><br> <!-- for text in app -->
+        <input type="submit" class="btn btn-success" value="Sent"> <!-- button -->
+
+    </form>
+</div>
+{% endblock %}

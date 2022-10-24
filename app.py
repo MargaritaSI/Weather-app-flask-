@@ -40,7 +40,7 @@ def posts_detail(id):
     return render_template('post_detail.html', article=article) #
 
 @app.route('/posts/<int:id>/del')
-def posts_detete(id):
+def posts_delete(id):
     article = Article.query.get_or_404(id)
 
     try:
@@ -48,6 +48,23 @@ def posts_detete(id):
         db.session.commit()
         return redirect('/posts')
     except: 'error during deleting posts'
+
+@app.route('/posts/<int:id>/update', methods=['POST','GET'])
+def post_update(id):
+    article = Article.query.get(id)
+    if request.method == 'POST':
+        article.title = request.form['title']
+        article.intro = request.form['intro']
+        article.text = request.form['text']
+
+        try:
+            db.session.commit()
+            return redirect('/')
+        except:
+            return "Error during update topic"
+    else:
+
+        return render_template('post_update.html', article=article)
 
 @app.route('/create-article', methods=['POST','GET'])
 def create_article():
@@ -61,7 +78,7 @@ def create_article():
         try:
             db.session.add(article)
             db.session.commit()
-            return redirect('/')
+            return redirect('/posts')
         except:
             return "Error during adding topic"
     else:
